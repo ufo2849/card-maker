@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
@@ -15,9 +15,14 @@ const Login = (props) => {
 
     const onLogin = (event) => {
         props.auth.Login(event.currentTarget.textContent)
-        .then(history.push('/maker'))
         .then(data => goToMaker(data.user.uid));
     }
+
+    useEffect(() => {
+        props.auth.onAuthChange((user) => {
+            user && goToMaker(user.uid);
+        })
+    });
 
     return (
         <section className={styles.login}>

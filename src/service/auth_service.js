@@ -8,9 +8,15 @@ class AuthService {
         return firebaseApp.auth().signInWithPopup(provider);
     }
 
-    // Logout() {
-    //     return firebaseApp.auth().signOut();
-    // }
+    onAuthChange(onuserChanged) {
+        firebase.auth().onAuthStateChanged(user => {
+            onuserChanged(user);
+        })
+    }
+
+    Logout() {
+        return firebaseApp.auth().signOut();
+    }
 }
 
 export default AuthService;
