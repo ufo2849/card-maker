@@ -1,0 +1,60 @@
+@value makerBlack, makerWhite, makerColorful, makerWheat from '../../common/color.css';
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.6em;
+    border-radius: 20px;
+    padding: 0.2em 0;
+    box-shadow: 7px 6px 5px 0px rgba(0,0,0,0.63);
+    max-width: 33rem;
+}
+
+.card.dark {
+    background-color: makerBlack;
+    color: makerWhite;
+}
+
+.card.light {
+    background-color: makerWhite;
+    color: makerBlack;
+}
+
+.card.colorful {
+    background-image: makerColorful;
+}
+
+.avatar {
+    width: 10em;
+    height: 10em;
+    padding: 1em;
+    margin: 0 1em 0 0.5em;
+    border-radius: 50%;
+}
+
+.info {
+    width: 100%;
+}
+
+.name, .company, .title, .email, .message {
+    margin: 5px;
+    font-size: 0.8rem;
+}
+
+.name {
+    font-size: 1.2rem;
+}
+
+.company {
+    margin-bottom: 1em;
+}
+
+.company::after {
+    content: '';
+    display: block;
+    width: 90%;  /*부모의 90%를 채움*/
+    height: 2px;
+    margin-top: 10px;
+    background-color: makerWheat;
+}
