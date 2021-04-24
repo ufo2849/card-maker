@@ -1,5 +1,5 @@
 import React from 'react';
-import Add_form from '../add_form/add_form';
+import Cardadd_form from '../cardadd_form/cardadd_form';
 import Cardedit_form from '../cardedit_form/cardedit_form';
 import styles from './editor.module.css';
 
@@ -7,9 +7,9 @@ const Editor = (props) => (
     <section className={styles.editor}>
         <h1 className={styles.title}>Card Maker</h1>
         {props.cards.map(card => (
-            <Cardedit_form card={card}/>
+            <Cardedit_form key={card.id} card={card}/>
         ))}
-        <Add_form onAdd={props.onAdd}/>
+        <Cardadd_form onAdd={props.onAdd}/>
     </section>
     );
 
