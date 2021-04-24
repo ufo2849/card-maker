@@ -60,7 +60,8 @@ const Maker = (props) => {
     });
 
     const Add = (info) => {
-        console.log(info);
+        const update= [...cards, info];
+        setCards(update);
         // setCards(info);
     }
 

@@ -18,7 +18,7 @@ const Cardadd_form = (props) => {
             id: Date.now(),
             name: nameRef.current.value || '',
             company: companyRef.current.value || '',
-            theme: themeRef.current.value || '',
+            theme: themeRef.current.value,
             job: jobRef.current.value || '' ,
             email: emailRef.current.value|| '' ,
             message: messageRef.current.value || '',
@@ -34,9 +34,9 @@ const Cardadd_form = (props) => {
             <input className={styles.input} ref={nameRef} type="text" name="name" placeholder="Name"></input>
             <input className={styles.input} ref={companyRef} type="text" name="company" placeholder="Company"></input>
             <select className={styles.select} ref={themeRef} name="theme" placeholder="Theme">
-                <option placeholder="light">Light</option>
-                <option placeholder="dark">Dark</option>
-                <option placeholder="colorful">Colorful</option>
+                <option placeholder="light">light</option>
+                <option placeholder="dark">dark</option>
+                <option placeholder="colorful">colorful</option>
             </select>
             <input className={styles.input} ref={jobRef} type="text" name="job" placeholder="Job"></input>
             <input className={styles.input} ref={emailRef} type="text" name="email" placeholder="Email"></input>
