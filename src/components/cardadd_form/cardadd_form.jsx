@@ -1,20 +1,36 @@
 import React, { useRef } from 'react';
-import Add_button from '../add_button/add_button';
+import Button from '../button/button';
 import Image_file_input from '../image_file_input/image_file_input';
 import styles from './cardadd_form.module.css';
 
 const Cardadd_form = (props) => {
+    const formRef= useRef();
     const nameRef= useRef();
     const companyRef= useRef();
     const themeRef= useRef();
     const jobRef= useRef();
     const emailRef= useRef();
     const messageRef= useRef();
-    
-    const inputvalue= input.current;
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const card= {
+            id: Date.now(),
+            name: nameRef.current.value || '',
+            company: companyRef.current.value || '',
+            theme: themeRef.current.value || '',
+            job: jobRef.current.value || '' ,
+            email: emailRef.current.value|| '' ,
+            message: messageRef.current.value || '',
+            fileName: '',
+            fileURL: '',
+        };
+        formRef.current.reset();
+        props.onAdd(card);
+    };
 
     return (
-        <form className={styles.form}>
+        <form className={styles.form} ref={formRef}>
             <input className={styles.input} ref={nameRef} type="text" name="name" placeholder="Name"></input>
             <input className={styles.input} ref={companyRef} type="text" name="company" placeholder="Company"></input>
             <select className={styles.select} ref={themeRef} name="theme" placeholder="Theme">
@@ -28,7 +44,7 @@ const Cardadd_form = (props) => {
             <div className={styles.fileInput}>
                 <Image_file_input />
             </div>
-            <Add_button name='Add' value={inputvalue}  onAdd={props.onAdd}/>
+            <Button name='Add' onClick={onSubmit}/>
         </form>
     );
 };

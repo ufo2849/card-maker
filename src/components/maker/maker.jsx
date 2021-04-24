@@ -43,10 +43,6 @@ const Maker = (props) => {
         }
     ]);
 
-    const Add = (info) => {
-        setCards(info);
-    }
-
     const history = useHistory();
     const Logout = () => {
         props.auth.Logout()
@@ -62,6 +58,11 @@ const Maker = (props) => {
             }
         });
     });
+
+    const Add = (info) => {
+        console.log(info);
+        // setCards(info);
+    }
 
     return (
         <section className={styles.maker}>
