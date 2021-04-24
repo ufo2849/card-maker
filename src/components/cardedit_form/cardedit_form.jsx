@@ -4,7 +4,7 @@ import Image_file_input from '../image_file_input/image_file_input';
 import styles from './cardedit_form.module.css';
 
 const Cardedit_form = (props) => {
-    const {name, company, title, email, message, theme, fileName, fileURL}= props.card;
+    const {name, company, job, email, message, theme, fileName, fileURL}= props.card;
     const onSubmit = () => {
 
     }
@@ -18,7 +18,7 @@ const Cardedit_form = (props) => {
                 <option value="dark">Dark</option>
                 <option value="colorful">Colorful</option>
             </select>
-            <input className={styles.input} type="text" name="title" value={title}></input>
+            <input className={styles.input} type="text" name="job" value={job}></input>
             <input className={styles.input} type="text" name="email" value={email}></input>
             <textarea className={styles.textarea} name="message" value={message}></textarea>
             <div className={styles.fileInput}>

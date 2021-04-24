@@ -43,6 +43,10 @@ const Maker = (props) => {
         }
     ]);
 
+    const Add = (info) => {
+        setCards(info);
+    }
+
     const history = useHistory();
     const Logout = () => {
         props.auth.Logout()
@@ -63,7 +67,7 @@ const Maker = (props) => {
         <section className={styles.maker}>
             <Header onLogout={Logout} />
             <div className={styles.container}>
-                <Editor cards={cards} />
+                <Editor cards={cards} onAdd={Add} />
                 <Preview cards={cards} />
             </div>
             <Footer />

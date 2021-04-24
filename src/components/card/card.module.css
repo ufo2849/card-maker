@@ -37,7 +37,7 @@
     width: 100%;
 }
 
-.name, .company, .title, .email, .message {
+.name, .company, .job, .email, .message {
     margin: 5px;
     font-size: 0.8rem;
 }
