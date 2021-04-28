@@ -7,8 +7,8 @@ import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 
 const Maker = (props) => {
-    const [cards, setCards] = useState([
-        {
+    const [cards, setCards] = useState({
+        '1': {
             id: '1',
             name: 'Ellie',
             company: 'Samsung Electronics',
@@ -19,7 +19,7 @@ const Maker = (props) => {
             fileName: 'ellie',
             fileULR: null,
         },
-        {
+        '2': {
             id: '2',
             name: 'Bob',
             company: 'Uber',
@@ -30,7 +30,7 @@ const Maker = (props) => {
             fileName: 'ellie',
             fileULR: 'ellie.png'
         },
-        {
+        '3': {
             id: '3',
             name: 'Chris',
             company: 'Instagram',
@@ -40,8 +40,9 @@ const Maker = (props) => {
             message: 'Design ur dream',
             fileName: 'ellie',
             fileULR: null,
-        }
-    ]);
+        },
+    });
+
 
     const history = useHistory();
     const Logout = () => {
@@ -69,7 +70,7 @@ const Maker = (props) => {
         const updated= cards.map(item => {
             if (card.id === item.id) {
                 const update= [...cards, card];
-                return setCards(update);
+                setCards(update);
             }
             return item;
         })
