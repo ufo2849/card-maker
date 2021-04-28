@@ -6,7 +6,7 @@ import styles from './cardedit_form.module.css';
 const Cardedit_form = (props) => {
     const {name, company, job, email, message, theme, fileName, fileURL}= props.card;
     const onSubmit = () => {
-
+        props.deleteCard(props.card);
     };
 
     const onChange = (event) => {

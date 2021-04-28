@@ -60,32 +60,37 @@ const Maker = (props) => {
         });
     });
 
-    const Add = (info) => {
-        const update= [...cards, info];
-        setCards(update);
-        // setCards(info);
+    // const Add = (info) => {
+    //     const update= [...cards, info];
+    //     setCards(update);
+    //     // setCards(info);
+    // }
+
+    const createOrupdateCard = (card) => {
+        setCards(cards => {
+            const updated= {...cards};
+            updated[card.id]= card;
+            return updated;
+        });
+        // const updated= {...cards};
+        // updated[card.id]= card;
+        // setCards(updated);
     }
 
-    const updateCard = (card) => {
-        const updated= cards.map(item => {
-            if (card.id === item.id) {
-                const update= [...cards, card];
-                setCards(update);
-            }
-            return item;
-        })
-    }
-
-    const deleteCard = (info) => {
-
+    const deleteCard = (card) => {
+        setCards(cards => {
+            const updated= {...cards};
+            delete updated[card.id];
+            return updated;
+        });
     }
 
     return (
         <section className={styles.maker}>
             <Header onLogout={Logout} />
             <div className={styles.container}>
-                <Editor cards={cards} onAdd={Add} 
-                updateCard={updateCard}
+                <Editor cards={cards} onAdd={createOrupdateCard} 
+                updateCard={createOrupdateCard}
                 deleteCard={deleteCard}/>
                 <Preview cards={cards} />
             </div>
