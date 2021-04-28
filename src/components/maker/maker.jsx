@@ -65,11 +65,27 @@ const Maker = (props) => {
         // setCards(info);
     }
 
+    const updateCard = (card) => {
+        const updated= cards.map(item => {
+            if (card.id === item.id) {
+                const update= [...cards, card];
+                return setCards(update);
+            }
+            return item;
+        })
+    }
+
+    const deleteCard = (info) => {
+
+    }
+
     return (
         <section className={styles.maker}>
             <Header onLogout={Logout} />
             <div className={styles.container}>
-                <Editor cards={cards} onAdd={Add} />
+                <Editor cards={cards} onAdd={Add} 
+                updateCard={updateCard}
+                deleteCard={deleteCard}/>
                 <Preview cards={cards} />
             </div>
             <Footer />
