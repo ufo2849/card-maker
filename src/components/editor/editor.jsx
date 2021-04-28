@@ -6,8 +6,8 @@ import styles from './editor.module.css';
 const Editor = (props) => (
     <section className={styles.editor}>
         <h1 className={styles.title}>Card Maker</h1>
-        {props.cards.map(card => (
-            <Cardedit_form key={card.id} card={card}
+        {Object.keys(props.cards).map(key => (
+            <Cardedit_form key={key} card={props.cards[key]}
             updateCard={props.updateCard} deleteCard={props.deleteCard}/>
         ))}
         <Cardadd_form onAdd={props.onAdd}/>
