@@ -8,7 +8,7 @@ import Preview from '../preview/preview';
 
 const Maker = (props) => {
     const [cards, setCards] = useState({
-        '1': {
+        1: {
             id: '1',
             name: 'Ellie',
             company: 'Samsung Electronics',
@@ -17,9 +17,9 @@ const Maker = (props) => {
             email: 'dream.coder.ellie@gmail.com',
             message: 'Do not forget to code ur dream',
             fileName: 'ellie',
-            fileULR: null,
+            fileURL: null,
         },
-        '2': {
+        2: {
             id: '2',
             name: 'Bob',
             company: 'Uber',
@@ -28,9 +28,9 @@ const Maker = (props) => {
             email: 'bog@uber.com',
             message: 'I love coding',
             fileName: 'ellie',
-            fileULR: 'ellie.png'
+            fileURL: 'ellie.png',
         },
-        '3': {
+        3: {
             id: '3',
             name: 'Chris',
             company: 'Instagram',
@@ -39,7 +39,7 @@ const Maker = (props) => {
             email: 'christ@instagram.com',
             message: 'Design ur dream',
             fileName: 'ellie',
-            fileULR: null,
+            fileURL: null,
         },
     });
 
@@ -75,7 +75,7 @@ const Maker = (props) => {
         // const updated= {...cards};
         // updated[card.id]= card;
         // setCards(updated);
-    }
+    };
 
     const deleteCard = (card) => {
         setCards(cards => {
@@ -83,7 +83,7 @@ const Maker = (props) => {
             delete updated[card.id];
             return updated;
         });
-    }
+    };
 
     return (
         <section className={styles.maker}>
