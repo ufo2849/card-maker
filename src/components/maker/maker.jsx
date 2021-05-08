@@ -84,7 +84,8 @@ const Maker = (props) => {
             <div className={styles.container}>
                 <Editor cards={cards} onAdd={createOrupdateCard} 
                 updateCard={createOrupdateCard}
-                deleteCard={deleteCard}/>
+                deleteCard={deleteCard}
+                FileInput={props.FileInput}/>
                 <Preview cards={cards} />
             </div>
             <Footer />

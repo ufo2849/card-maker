@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Button from '../button/button';
-import Image_file_input from '../image_file_input/image_file_input';
+// import Image_file_input from '../image_file_input/image_file_input';
 import styles from './cardedit_form.module.css';
 
 const Cardedit_form = (props) => {
@@ -47,7 +47,7 @@ const Cardedit_form = (props) => {
             <textarea className={styles.textarea} ref={messageRef} 
             name="message" value={message} onChange={onChange}></textarea>
             <div className={styles.fileInput}>
-                <Image_file_input />
+                <props.FileInput />
             </div>
             <Button name='Delete' onClick={onSubmit}/>
         </form>

@@ -7,10 +7,11 @@ const Editor = (props) => (
     <section className={styles.editor}>
         <h1 className={styles.title}>Card Maker</h1>
         {Object.keys(props.cards).map(key => (
-            <Cardedit_form key={key} card={props.cards[key]}
+            <Cardedit_form key={key} FileInput={props.FileInput}
+            card={props.cards[key]}
             updateCard={props.updateCard} deleteCard={props.deleteCard}/>
         ))}
-        <Cardadd_form onAdd={props.onAdd}/>
+        <Cardadd_form onAdd={props.onAdd} FileInput={props.FileInput}/>
     </section>
     );
 

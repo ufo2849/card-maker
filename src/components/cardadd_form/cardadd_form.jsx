@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Button from '../button/button';
-import Image_file_input from '../image_file_input/image_file_input';
+// import Image_file_input from '../image_file_input/image_file_input';
 import styles from './cardadd_form.module.css';
 
 const Cardadd_form = (props) => {
@@ -42,7 +42,7 @@ const Cardadd_form = (props) => {
             <input className={styles.input} ref={emailRef} type="text" name="email" placeholder="Email"></input>
             <textarea className={styles.textarea} ref={messageRef} name="message" placeholder="Message"></textarea>
             <div className={styles.fileInput}>
-                <Image_file_input />
+                <props.FileInput />
             </div>
             <Button name='Add' onClick={onSubmit}/>
         </form>
