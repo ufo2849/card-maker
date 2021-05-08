@@ -3,3 +3,5 @@ class ImageUploader {
         return 'file';
     }
 }
+
+export default ImageUploader;
