@@ -67,22 +67,15 @@ const Maker = (props) => {
     // }
 
     const createOrupdateCard = (card) => {
-        setCards(cards => {
-            const updated= {...cards};
-            updated[card.id]= card;
-            return updated;
-        });
-        // const updated= {...cards};
-        // updated[card.id]= card;
-        // setCards(updated);
+        const updated= {...cards};
+        updated[card.id]= card;
+        setCards(updated);
     };
 
     const deleteCard = (card) => {
-        setCards(cards => {
-            const updated= {...cards};
-            delete updated[card.id];
-            return updated;
-        });
+        const updated= {...cards};
+        delete updated[card.id]
+        setCards(updated);
     };
 
     return (
