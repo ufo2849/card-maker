@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '../button/button';
 // import Image_file_input from '../image_file_input/image_file_input';
 import styles from './cardadd_form.module.css';
@@ -11,6 +11,15 @@ const Cardadd_form = (props) => {
     const jobRef= useRef();
     const emailRef= useRef();
     const messageRef= useRef();
+    const [file, setFile]= useState({fileName: null, fileURL: null});
+
+    const onFileChange = (file) => {
+        console.log(file);
+        setFile({
+            fileName: file.name,
+            fileURL: file.url,
+        });
+    };
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -22,10 +31,11 @@ const Cardadd_form = (props) => {
             job: jobRef.current.value || '' ,
             email: emailRef.current.value|| '' ,
             message: messageRef.current.value || '',
-            fileName: '',
-            fileURL: '',
+            fileName: file.fileName || '',
+            fileURL: file.fileURL || '',
         };
         formRef.current.reset();
+        console.log(card);
         props.onAdd(card);
     };
 
@@ -42,7 +52,7 @@ const Cardadd_form = (props) => {
             <input className={styles.input} ref={emailRef} type="text" name="email" placeholder="Email"></input>
             <textarea className={styles.textarea} ref={messageRef} name="message" placeholder="Message"></textarea>
             <div className={styles.fileInput}>
-                <props.FileInput />
+                <props.FileInput name={file.fileName} onFileChange={onFileChange}/>
             </div>
             <Button name='Add' onClick={onSubmit}/>
         </form>

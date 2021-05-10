@@ -8,14 +8,14 @@ const Image_file_input = (props) => {
         inputRef.current.click();
     };
 
-    const onChange = (event) => {
+    const onChange = async event => {
         console.log(event.target.files[0]);
-        props.imageUploader.upload(event.target.files[0])
-        .then(console.log);
+        const uploaded= await props.imageUploader.upload(event.target.files[0]);
+        console.log(uploaded);
         props.onFileChange({
-            name: 'fileName',
-            url: 'url'
-        })
+            name: uploaded.original_filename,
+            url: uploaded.url,
+        });
     }
 
     return (

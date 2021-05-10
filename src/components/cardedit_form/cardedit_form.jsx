@@ -16,12 +16,18 @@ const Cardedit_form = (props) => {
         props.deleteCard(props.card);
     };
 
+    const onFileChange = (file) => {
+        props.updateCard({
+            ...props.card,
+            fileName: file.name,
+            fileURL: file.url,
+        });
+    }
+
     const onChange = (event) => {
         if (event.currentTarget == null){
             return;
         }
-        // console.log(event.currentTarget.name);
-        // console.log(event.currentTarget.value);
         event.preventDefault();
         props.updateCard( {...props.card,
             [event.currentTarget.name]: event.currentTarget.value,
@@ -47,7 +53,7 @@ const Cardedit_form = (props) => {
             <textarea className={styles.textarea} ref={messageRef} 
             name="message" value={message} onChange={onChange}></textarea>
             <div className={styles.fileInput}>
-                <props.FileInput />
+                <props.FileInput name={file.fileName} onFileChange={onFileChange}/>
             </div>
             <Button name='Delete' onClick={onSubmit}/>
         </form>
