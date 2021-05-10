@@ -9,7 +9,13 @@ const Image_file_input = (props) => {
     };
 
     const onChange = (event) => {
-        
+        console.log(event.target.files[0]);
+        props.imageUploader.upload(event.target.files[0])
+        .then(console.log);
+        props.onFileChange({
+            name: 'fileName',
+            url: 'url'
+        })
     }
 
     return (
