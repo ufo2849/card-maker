@@ -33,9 +33,9 @@ const Image_file_input = (props) => {
             name="file"
             onChange= {onChange}>
             </input>
-            {false && <button className={styles.button}
+            {!loading && <button className={`${styles.button} ${props.name ? styles.pink:styles.grey}`}
             onClick={onButtonClick}>{props.name || "No file"}</button>}
-            {true && <div className={styles.loading}></div>}
+            {loading && <div className={styles.loading}></div>}
         </div>
     )
 };
