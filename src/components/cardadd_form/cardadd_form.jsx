@@ -35,7 +35,8 @@ const Cardadd_form = (props) => {
             fileURL: file.fileURL || '',
         };
         formRef.current.reset();
-        console.log(card);
+        // console.log(card);
+        setFile({fileName: null, fileURL: null});
         props.onAdd(card);
     };
 

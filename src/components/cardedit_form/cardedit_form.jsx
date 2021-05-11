@@ -53,7 +53,7 @@ const Cardedit_form = (props) => {
             <textarea className={styles.textarea} ref={messageRef} 
             name="message" value={message} onChange={onChange}></textarea>
             <div className={styles.fileInput}>
-                <props.FileInput name={file.fileName} onFileChange={onFileChange}/>
+                <props.FileInput name={fileName} onFileChange={onFileChange}/>
             </div>
             <Button name='Delete' onClick={onSubmit}/>
         </form>
