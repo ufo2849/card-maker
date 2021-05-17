@@ -5,15 +5,18 @@ import App from './app';
 import Auth from './service/auth_service';
 import ImageUploader from './service/image_uploader';
 import Image_file_input from './components/image_file_input/image_file_input';
+import CardRepository from './service/card_repository';
 
 const auth= new Auth();
+const cardRepository= new CardRepository();
 const imageUploader= new ImageUploader();
 const FileInput= props => (
 <Image_file_input {...props} imageUploader={imageUploader}/>);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App auth={auth} FileInput={FileInput}/>
+    <App auth={auth} FileInput={FileInput}
+    cardRepository={cardRepository}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

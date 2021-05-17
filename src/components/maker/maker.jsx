@@ -7,41 +7,10 @@ import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 
 const Maker = (props) => {
-    const [cards, setCards] = useState({
-        1: {
-            id: '1',
-            name: 'Ellie',
-            company: 'Samsung Electronics',
-            theme: 'dark',
-            job: 'Software Engineer',
-            email: 'dream.coder.ellie@gmail.com',
-            message: 'Do not forget to code ur dream',
-            fileName: 'ellie',
-            fileURL: null,
-        },
-        2: {
-            id: '2',
-            name: 'Bob',
-            company: 'Uber',
-            theme: 'light',
-            job: 'Senior Software Engineer',
-            email: 'bog@uber.com',
-            message: 'I love coding',
-            fileName: 'ellie',
-            fileURL: 'ellie.png',
-        },
-        3: {
-            id: '3',
-            name: 'Chris',
-            company: 'Instagram',
-            theme: 'colorful',
-            job: 'Product Manager',
-            email: 'christ@instagram.com',
-            message: 'Design ur dream',
-            fileName: 'ellie',
-            fileURL: null,
-        },
-    });
+    //history안의 초기값으로 설정
+    const historyState= useHistory().state;
+    const [cards, setCards] = useState({});
+    const [userId, setuserId]= useState(historyState && historyState.id);
 
 
     const history = useHistory();
@@ -52,7 +21,7 @@ const Maker = (props) => {
     useEffect(() => {
         props.auth.onAuthChange(user => {
             if (user) {
-                return
+                setuserId(user.uid);
             }
             else {
                 history.push('/');
@@ -70,6 +39,10 @@ const Maker = (props) => {
         const updated= {...cards};
         updated[card.id]= card;
         setCards(updated);
+        // console.log(userId);
+        // console.log(card);
+        // console.log(props.cardRepositry.saveCard);
+        props.cardRepository.saveCard(userId, card);
     };
 
     const deleteCard = (card) => {
