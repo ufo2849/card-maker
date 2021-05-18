@@ -49,6 +49,7 @@ const Maker = (props) => {
         const updated= {...cards};
         delete updated[card.id]
         setCards(updated);
+        props.cardRepository.removeCard(userId, card);
     };
 
     return (
