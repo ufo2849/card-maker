@@ -19,6 +19,16 @@ const Maker = (props) => {
     };
 
     useEffect(() => {
+        if (!userId) {
+            return;
+        }
+        const stopSync= props.cardRepository.syncCard(userId, cards => {
+            setCards(cards);
+        });
+        return () => stopSync();
+    }, [userId]);
+
+    useEffect(() => {
         props.auth.onAuthChange(user => {
             if (user) {
                 setuserId(user.uid);
