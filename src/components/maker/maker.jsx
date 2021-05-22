@@ -26,7 +26,7 @@ const Maker = (props) => {
             setCards(cards);
         });
         return () => stopSync();
-    }, [userId]);
+    }, [userId, props.cardRepository]);
 
     useEffect(() => {
         props.auth.onAuthChange(user => {
@@ -37,7 +37,7 @@ const Maker = (props) => {
                 history.push('/');
             }
         });
-    });
+    }, [props.auth, history]);
 
     // const Add = (info) => {
     //     const update= [...cards, info];
