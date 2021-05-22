@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './maker.module.css';
@@ -14,9 +14,12 @@ const Maker = (props) => {
 
 
     const history = useHistory();
-    const Logout = () => {
+    //Maker 컴포넌트 안에서 만들어진 지역함수여서 Maker가 바뀔때마다 계속 새로운
+    //Logout이라는 함수가 만들어지기때문에 방지하기위해 useCallback을 씀
+    const Logout = useCallback(() => {
         props.auth.Logout()
-    };
+    }, [props.auth]); //계속 동일한 걸 쓰지만, 안에서 사용하는 authservice에 변화가
+    //생긴다면 다시 새로운 콜백을 만든다는 것을 전달
 
     useEffect(() => {
         if (!userId) {

@@ -3,7 +3,7 @@ import Button from '../button/button';
 // import Image_file_input from '../image_file_input/image_file_input';
 import styles from './cardedit_form.module.css';
 
-const Cardedit_form = (props) => {
+const Cardeditform = (props) => {
     const nameRef= useRef();
     const companyRef= useRef();
     const themeRef= useRef();
@@ -11,7 +11,7 @@ const Cardedit_form = (props) => {
     const emailRef= useRef();
     const messageRef= useRef();
 
-    const {name, company, job, email, message, theme, fileName, fileURL}= props.card;
+    const {name, company, job, email, message, theme, fileName}= props.card;
     const onSubmit = () => {
         props.deleteCard(props.card);
     };
@@ -60,4 +60,4 @@ const Cardedit_form = (props) => {
     );
 };
 
-export default Cardedit_form;
+export default Cardeditform;

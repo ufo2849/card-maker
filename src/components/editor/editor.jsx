@@ -1,17 +1,17 @@
 import React from 'react';
-import Cardadd_form from '../cardadd_form/cardadd_form';
-import Cardedit_form from '../cardedit_form/cardedit_form';
+import Cardaddform from '../cardadd_form/cardadd_form';
+import Cardeditform from '../cardedit_form/cardedit_form';
 import styles from './editor.module.css';
 
 const Editor = (props) => (
     <section className={styles.editor}>
         <h1 className={styles.title}>Card Maker</h1>
         {Object.keys(props.cards).map(key => (
-            <Cardedit_form key={key} FileInput={props.FileInput}
+            <Cardeditform key={key} FileInput={props.FileInput}
             card={props.cards[key]}
             updateCard={props.updateCard} deleteCard={props.deleteCard}/>
         ))}
-        <Cardadd_form onAdd={props.onAdd} FileInput={props.FileInput}/>
+        <Cardaddform onAdd={props.onAdd} FileInput={props.FileInput}/>
     </section>
     );
 

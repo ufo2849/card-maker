@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { memo } from 'react';
 import styles from './image_file_input.module.css';
 
-const Image_file_input = (props) => {
+const Image_file_input = memo((props) => {
     const [loading, setLoading]= useState(false);
 
     const inputRef= useRef();
@@ -38,6 +39,6 @@ const Image_file_input = (props) => {
             {loading && <div className={styles.loading}></div>}
         </div>
     )
-};
+});
 
 export default Image_file_input;
